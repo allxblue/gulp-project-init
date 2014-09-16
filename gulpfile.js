@@ -42,7 +42,7 @@ var plugins = {
  * project: 專案設定
  */
 var app = {
-    title: '麥卡貝Live直播'
+    title: 'website name'
   , name: 'porj'
   , baseUrl: '/'
   , useBootstrap: false
