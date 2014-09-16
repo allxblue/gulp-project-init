@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title> - {{ title }}</title>
+        <link rel="icon" type="image/png" href="{{ baseUrl }}public/images/favicon.png">
+
+        <meta property="og:title" content="{{ title }}"/>
+        <meta property="og:type" content="web.site" />
+        <meta property="og:image" content="{{ baseUrl }}public/images/website.png" />
+
+        {{!-- Responsive Style --}}
+        {{> views/partials/stylesheets }}
+        
+        <link rel="stylesheet" type="text/css" media="all" href="{{ baseUrl }}public/css/main.css">  
+        <link rel="stylesheet" type="text/css" media="only screen and (max-width:1020px)" href="{{ baseUrl }}public/css/main-m.css">
+        <link rel="stylesheet" type="text/css" media="only screen and  (max-width:720px)" href="{{ baseUrl }}public/css/main-s.css">
+
+        <!--[if lt IE 9]>
+            <script src="{{ baseUrl }}public/vendor/html5shiv/dist/html5shiv.min.js"></script> 
+        <![endif]-->
+
+    </head>
+    <body>
+
+        {{!--  抽換layout  --}}
+        {{> views/layout/main }}
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>
+          window.jQuery || document.write('<script src="{{ baseUrl }}public/vendor/jquery/jquery.min.js"><\/script>')
+        </script>
+
+        {{!--  Javascript library  --}}
+        {{> views/partials/jsLibs }}
+
+        <script>$().ready(function(){
+            {{> views/partials/jsReady }}
+
+        });</script>
+
+        {{!--  preload template  --}}
+        {{> views/template/templates }}
+
+    </body>
+</html>

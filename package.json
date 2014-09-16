@@ -1,0 +1,35 @@
+{
+  "name": "test-scaffold",
+  "version": "0.0.0",
+  "description": "new project init",
+  "main": "gulpfile.js",
+  "scripts": {
+      "start": "npm i && bower install && gulp init && gulp"
+    , "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lanc",
+  "license": "MIT",
+  "devDependencies": {
+      "gulp"              : "~3.8.3"
+    , "bower"             : "~1.3.10"
+    , "gulp-concat"       : "~2.4.0"
+    , "gulp-uglify"       : "~0.3.1"
+    , "gulp-autoprefixer" : "~0.0.7"
+    , "gulp-watch"        : "~0.6.8"
+    , "gulp-compass"      : "~1.1.9"
+    , "gulp-clean"        : "~0.3.1"
+    , "gulp-imagemin"     : "~1.0.0"
+    , "gulp-minify-css"   : "~0.3.5"
+    , "gulp-if"           : "~1.2.1"
+    , "gulp-order"        : "~1.1.1"
+    , "gulp-notify"       : "~1.4.0"
+    , "gulp-rename"       : "~1.2.0"
+    , "gulp-plumber"      : "~0.6.3"
+    , "gulp-sass"         : "~0.7.2"
+    , "gulp-inject"       : "~1.0.2"
+    , "gulp-styledocco"   : "~0.0.1"
+    , "browser-sync"      : "~1.4.0"
+    , "gulp-compile-handlebars"   : "git://github.com/kaanon/gulp-compile-handlebars.git#master"
+
+  }
+}
