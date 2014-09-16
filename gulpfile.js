@@ -14,6 +14,8 @@ var gulp = require('gulp');
 var plugins = {
     browserSync   : require('browser-sync')       // 自動重整
   , fs            : require('fs')                 // file system
+  , tap           : require('gulp-tap')           // 流過處理
+  , gutil         : require('gulp-util')          // gulp util
   , concat        : require('gulp-concat')        // 合併文件
   , gulpif        : require('gulp-if')            // 三元判斷
   , uglify        : require('gulp-uglify')        // 壓縮js
@@ -184,10 +186,12 @@ gulp.task('hbs', function(){
               }
           }
       }
-return gulp.src(paths.hbs.src + "/theme/default.hbs")
+return gulp.src(paths.hbs.src + "/pages/**/*.hbs")
     .pipe(plugins.plumber())
     .pipe(plugins.handlebars(appInfo, options))
-    .pipe(plugins.rename("index.html"))
+    .pipe(plugins.tap(function(file, t) {
+        file.path = plugins.gutil.replaceExtension(file.path, '.html');
+    }))
     .pipe(gulp.dest(paths.hbs.dest));
 });
 
