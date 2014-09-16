@@ -42,11 +42,11 @@ var plugins = {
  * project: 專案設定
  */
 var app = {
-    title: '專案名稱'
+    title: '麥卡貝Live直播'
   , name: 'porj'
   , baseUrl: '/'
-  , useBootstrap: true
-  , useModernizr: true
+  , useBootstrap: false
+  , useModernizr: false
   , useFontawesome: true
 
 };
@@ -137,6 +137,18 @@ gulp.task('css', function() {
     .pipe(plugins.concat('combined.min.css'))
     .pipe(gulp.dest(paths.styles.dest));
 });
+
+
+/**
+ * styles: copy css to build directory
+ * cmd : gulp styles
+ * flow : 載入css群 -> 輸出
+ */
+gulp.task('styles', function() {
+  return gulp.src(paths.styles.files)
+    .pipe(gulp.dest(paths.styles.dest));
+});
+
 
 /**
  * images: 壓縮圖檔
@@ -232,6 +244,7 @@ gulp.task('dev', ['hbs', 'sass-dev', 'browser-sync']);
  */
 gulp.task('default', function () {
     gulp.run('dev');
+    gulp.watch(paths.styles.files, ['styles', plugins.browserSync.reload]);   
     gulp.watch(paths.sass.src + "/**/*.scss", ['sass-dev',  plugins.browserSync.reload]);   
     gulp.watch(paths.hbs.files, ['hbs',  plugins.browserSync.reload]);
 });
