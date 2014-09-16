@@ -228,11 +228,7 @@ gulp.task('dev', ['hbs', 'sass-dev', 'browser-sync']);
  */
 gulp.task('default', function () {
     gulp.run('dev');
-    gulp.watch(paths.sass.src + "/**/*.scss", ['sass-dev']);   
-    gulp.watch(paths.hbs.files, ['hbs']);
+    gulp.watch(paths.sass.src + "/**/*.scss", ['sass-dev',  plugins.browserSync.reload]);   
+    gulp.watch(paths.hbs.files, ['hbs',  plugins.browserSync.reload]);
 });
-
-
-
-
 
